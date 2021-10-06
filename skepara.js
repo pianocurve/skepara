@@ -14,19 +14,31 @@
 
   let source = document.createElement('textarea');
   source.id='sourcetext';
-  source.placeholder='Please enter the source code. (p5.js only)';
-  source.addEventListener('change', ()=>{
+  source.placeholder='1.Please enter the source code. (p5.js only)';
+  document.body.appendChild(source);
+
+  let extra = document.createElement('input');
+  extra.type='button'
+  extra.value='2.Extraction of variables';
+  document.body.appendChild(extra);
+  extra.addEventListener('click', ()=>{
     replaceNumber();
     createInputToolsText();
     resetNewCode();
-
   });
-  document.body.appendChild(source);
+
 
   let newCode = document.createElement('textarea');
   newCode.id='newCode';
-  newCode.placeholder='The result will be written here.'
+  newCode.placeholder='3 & 5.The result will be written here.'
   document.body.appendChild(newCode);
+
+  let refreshBtn = document.createElement('input');
+  refreshBtn.id='refreshBtn';
+  refreshBtn.type='button'
+  refreshBtn.value='4.Refresh!';
+  document.body.appendChild(refreshBtn);
+
 
 
   //2、直接書き込んだ数値を変数に置き換える
@@ -100,14 +112,14 @@
     });" >adopt,name,default,min,max,step<br>
     <form name="checkform">
     ${parameters}
-    <input id="reflash" type="button" value="Adopt & Sliders!" ></form>
+    </form>
     `;
   }
 
   //4、チェックボックスをもとに新しいコードとスライダーの書き出し ボタンに処理をわりあてる
   function resetNewCode(){
-    const reflash = document.getElementById('reflash');
-    reflash.addEventListener('click', ()=>{
+    const refreshBtn = document.getElementById('refreshBtn');
+    refreshBtn.addEventListener('click', ()=>{
 
       //  現在変換されたテキストを取得　チェックボックスの指定によって変更する
       let newCode = document.getElementById('newCode');
@@ -116,13 +128,9 @@
       let changeText=newCode.value;
 
       let addInputHtml="";
-
-      //const elms= document.getElementsByTagName('input');
-
       const elms=document.checkform.elements;
-
       for(let i=0;i<elms.length;i++){
-         //console.log(elm.type);
+
         if(elms[i].type=='checkbox'){
           if(elms[i].checked){
             //チェックがあるならインプットを作成するコードを生成して追加する
@@ -150,7 +158,5 @@ document.body.appendChild(sliders);
       `;
       newCode.value=changeText + addInputHtml;
     });
-
   }
-
 })();

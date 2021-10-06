@@ -14,11 +14,13 @@ https://pianocurve.github.io/skepara/
 
 1. let's Input!
 
-   Paste your code into a textaria("Please enter the sourcecode...")
+   Paste your code into a textaria("Please enter the sourcecode..."),
+   and click "Extraction of variables" button.
 
 2. let's Select!
 
    Select the numerical value you want to parameterize with the check box.
+   Click the refresh button when you're done.
 
 3. Take out!
 
