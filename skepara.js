@@ -41,7 +41,7 @@
 
   let generatedCode = document.createElement('textarea');
   generatedCode.id='generatedCode';
-  generatedCode.placeholder='5. generated Code.'
+  generatedCode.placeholder='5. Generated Code.'
   document.body.appendChild(generatedCode);
 
 
