@@ -10,7 +10,19 @@ Let's go to Processing sketch paradise!
 
 ## How to use
 
-in preparation.
+https://pianocurve.github.io/skepara/
+
+1. let's Input!
+
+   Paste your code into a textaria("Please enter the sourcecode...")
+
+2. let's Select!
+
+   Select the numerical value you want to parameterize with the check box.
+
+3. Take out!
+
+   Extract the generated code in the textarea("The result will be written here.").
 
 
 ## list of pending
