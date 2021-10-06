@@ -1,10 +1,12 @@
 # skepara
 
-Parameterize the numbers in your sketch (or Code written in JavaScript ).
+This is the code that extracts the parameters from the code. This is at the same time a paraphrase and a paradise.
+
+This is to parameterize the numbers in your sketch (or Code written in JavaScript ).
 
 This is a coding support tool that replaces numbers written directly in JavaScript code such as p5js with variables.
 
-Let's go to sketch paradise.
+Let's go to Processing sketch paradise!
 
 ## How to use
 
