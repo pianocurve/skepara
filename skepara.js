@@ -28,17 +28,21 @@
   });
 
 
-  let newCode = document.createElement('textarea');
-  newCode.id='newCode';
-  newCode.placeholder='3 & 5.The result will be written here.'
-  document.body.appendChild(newCode);
+  let extraResult = document.createElement('textarea');
+  extraResult.id='extraResult';
+  extraResult.placeholder='3. Extraction result.'
+  document.body.appendChild(extraResult);
 
   let refreshBtn = document.createElement('input');
   refreshBtn.id='refreshBtn';
   refreshBtn.type='button'
-  refreshBtn.value='4.Refresh!';
+  refreshBtn.value='4.Make Slider & Refresh!';
   document.body.appendChild(refreshBtn);
 
+  let generatedCode = document.createElement('textarea');
+  generatedCode.id='generatedCode';
+  generatedCode.placeholder='5. generated Code.'
+  document.body.appendChild(generatedCode);
 
 
   //2、直接書き込んだ数値を変数に置き換える
@@ -71,10 +75,7 @@
     verDeclaration += "\n"
     replaceText = verDeclaration + replaceText;
 
-    // 新しいHTML要素を無ければ作成
-    let newCode = document.getElementById("newCode")
-
-    newCode.value=replaceText;
+    document.getElementById("extraResult").value=replaceText;
  
     return verList;
 
@@ -122,10 +123,9 @@
     refreshBtn.addEventListener('click', ()=>{
 
       //  現在変換されたテキストを取得　チェックボックスの指定によって変更する
-      let newCode = document.getElementById('newCode');
-
-      //現在のチェックボックスの値から、再度newCodeを作成する
-      let changeText=newCode.value;
+      let extraResult = document.getElementById('extraResult');
+      //現在のチェックボックスの値から、
+      let changeText=extraResult.value;
 
       let addInputHtml="";
       const elms=document.checkform.elements;
@@ -156,7 +156,7 @@ var sliders = document.createElement('div');
 ${addInputHtml}
 document.body.appendChild(sliders);
       `;
-      newCode.value=changeText + addInputHtml;
+      document.getElementById('generatedCode').value=changeText + addInputHtml;
     });
   }
 })();
