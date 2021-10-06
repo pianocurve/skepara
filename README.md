@@ -30,6 +30,7 @@ https://pianocurve.github.io/skepara/
 ## list of pending
 
 - 見た目
+- 変数名の指定、統合
 - パラメータとしての変数の認識向上
 - パラメータの適切な範囲およびステップの推定
 - Java版対応
