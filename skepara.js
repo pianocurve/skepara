@@ -8,19 +8,23 @@
   
 
 (() => { 
-  
+
+  const ce = s=>document.createElement(s);
+  const ge = s=>document.getElementById(s);
+  const ap = e=>document.body.appendChild(e);
+
   let verList=[];
   //1、準備 source 用テキストエリア作成　Changeイベントの設定
 
-  let source = document.createElement('textarea');
+  let source = ce('textarea');
   source.id='sourcetext';
   source.placeholder='1.Please enter the source code. (p5.js only)';
-  document.body.appendChild(source);
+  ap(source);
 
-  let extra = document.createElement('input');
+  let extra = ce('input');
   extra.type='button'
   extra.value='2.Extraction of variables';
-  document.body.appendChild(extra);
+  ap(extra);
   extra.addEventListener('click', ()=>{
     replaceNumber();
     createInputToolsText();
@@ -28,21 +32,21 @@
   });
 
 
-  let extraResult = document.createElement('textarea');
+  let extraResult = ce('textarea');
   extraResult.id='extraResult';
   extraResult.placeholder='3. Extraction result.'
-  document.body.appendChild(extraResult);
+  ap(extraResult);
 
-  let refreshBtn = document.createElement('input');
+  let refreshBtn = ce('input');
   refreshBtn.id='refreshBtn';
   refreshBtn.type='button'
   refreshBtn.value='4.Make Slider & Refresh!';
-  document.body.appendChild(refreshBtn);
+  ap(refreshBtn);
 
-  let generatedCode = document.createElement('textarea');
+  let generatedCode = ce('textarea');
   generatedCode.id='generatedCode';
   generatedCode.placeholder='5. Generated Code.'
-  document.body.appendChild(generatedCode);
+  ap(generatedCode);
 
 
   //2、直接書き込んだ数値を変数に置き換える
@@ -53,7 +57,7 @@
     //const regex = /[-+]?(\d+\.?\d*|\.\d+|[eE][+-]?\d+)?/g;
 
     //sourceエリアからテキストをコピー
-    let text = document.getElementById('sourcetext').value; 
+    let text = ge('sourcetext').value; 
 
     //数値を抜き出して文章中の位置offsetとともに変数名を作成して置換
     verList=[];
@@ -75,7 +79,7 @@
     verDeclaration += "\n"
     replaceText = verDeclaration + replaceText;
 
-    document.getElementById("extraResult").value=replaceText;
+    ge("extraResult").value=replaceText;
  
     return verList;
 
@@ -100,11 +104,11 @@
     });
 
     // 新しい div 要素をなければ作成
-    let formCenter=document.getElementById("formCenter");
+    let formCenter=ge("formCenter");
     if (formCenter== null){
-      formCenter = document.createElement('div');
+      formCenter = ce('div');
       formCenter.id="formCenter";
-      document.body.appendChild(formCenter);
+      ap(formCenter);
     }
     formCenter.innerHTML = `
     <input id="allcheck" type="checkbox" checked onClick="
@@ -119,11 +123,11 @@
 
   //4、チェックボックスをもとに新しいコードとスライダーの書き出し ボタンに処理をわりあてる
   function resetNewCode(){
-    const refreshBtn = document.getElementById('refreshBtn');
+    const refreshBtn = ge('refreshBtn');
     refreshBtn.addEventListener('click', ()=>{
 
       //  現在変換されたテキストを取得　チェックボックスの指定によって変更する
-      let extraResult = document.getElementById('extraResult');
+      let extraResult = ge('extraResult');
       //現在のチェックボックスの値から、
       let changeText=extraResult.value;
 
@@ -156,7 +160,7 @@ var sliders = document.createElement('div');
 ${addInputHtml}
 document.body.appendChild(sliders);
       `;
-      document.getElementById('generatedCode').value=changeText + addInputHtml;
+      ge('generatedCode').value=changeText + addInputHtml;
     });
   }
 })();
