@@ -8,6 +8,12 @@ This is a coding support tool that replaces numbers written directly in JavaScri
 
 Let's go to Processing sketch paradise!
 
+
+2021-10-8 Added the function.
+Added the ability to export and import modified parameters.
+
+
+
 ## How to use
 
 https://pianocurve.github.io/skepara/
@@ -25,6 +31,11 @@ https://pianocurve.github.io/skepara/
 3. Take out!
 
    Extract the generated code in the textarea ("Generated Code.").
+
+4. When you run the exported code, 
+
+   a slider will appear and you can change the parameters.
+   Click the text area to export the parameters. Parameters can be imported by changing the text area.
 
 
 ## list of pending
